@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;700&display=swap");
+
+    :root {
+      --text-dark: #171717;
+      --text-light: #525252;
+      --white: #ffffff;
+      --primary: #393739;
+      --primary-dark: #3b373f;
+      --secondary: #646e72;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url("photographie/header2.jpg");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .header h1 {
+      font-family: "Merriweather", serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+  
+  nav {
+    justify-content: space-between; /* Centrer le logo horizontalement */
+    display: flex;
+    align-items: center;      /* Centrer le logo verticalement */
+    position: absolute;       /* Position initiale de l'élément */
+    top: 0;                   /* Positionner en haut */
+    left: 0;                  /* Positionner à gauche */
+    width: 100%;              /* Largeur complète */
+    z-index: 10;              /* Assurer que le logo est au-dessus */
+    padding: 1rem 0;          /* Espace autour du logo */
+    background-color: transparent;
+  }
+
+    .nav__logo img {
+      height: 150px;
+    }
+
+    .nav__links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav__links li {
+      margin: 0 1rem;
+    }
+
+    .nav__links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav__links a:hover {
+      color: var(--primary);
+    }
+
+    .service__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 3rem 1rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .service__card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service__card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service__card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .service__card p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .footer__bar {
+      background: var(--text-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav__links {
+        flex-direction: column;
+        margin-top: 1rem;
+      }
+
+      .nav__links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .service__grid {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav__logo">
+      <img src="photographie/logo3.png" alt="Logo">
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>Bienvenue sur l'interface administrateur</h1>
+    <p>Gérez vos produits, galeries, commandes, et plus encore depuis cette interface.</p>
+  </div>
+
+  <!-- Main Section -->
+  <div class="section__container">
+    <div class="service__grid">
+      <div class="service__card">
+        <h4>Messages</h4>
+        <p>Voir les messages des clients et visiteurs.</p>
+        <a href="admin_messages.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Gestion des Produits</h4>
+        <p>Ajouter, modifier ou supprimer les produits.</p>
+        <a href="gestion_produits.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Gestion Galerie</h4>
+        <p>Gérer les photos et vidéos de votre galerie.</p>
+        <a href="gestion_galeries.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Mise à jour Contact</h4>
+        <p>Modifier les informations de contact affichées.</p>
+        <a href="contact.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Gestion des Commandes</h4>
+        <p>Voir et traiter les commandes des clients.</p>
+        <a href="gestion_commandes.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Avis des Clients</h4>
+        <p>Voir et traiter les avis des clients.</p>
+        <a href="gestion_avis.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Services</h4>
+        <p>Ajouter, modifier ou supprimer les services.</p>
+        <a href="gestion_services.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Historique des Clients</h4>
+        <p>Consulter l'historiques des clients.</p>
+        <a href="historique_client.php" class="btn">Accéder</a>
+      </div>
+      <div class="service__card">
+        <h4>Gestion des Réservations</h4>
+        <p>Géré les Rendez vous de vos clients</p>
+        <a href="gestion_rdv.php" class="btn">Accéder</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer__bar">
+    © 2025 Votre Entreprise - Tous droits réservés.
+  </footer>
+</body>
+</html>
